@@ -1,0 +1,10 @@
+Problem Analysis: 
+    The main goal of the program is focused around semaphores, moreover creating semaphores, storing them within an array, 
+    and displaying the value of each semaphore. Also, the user will have the option to remove semaphores or leave them be. 
+    In order to achieve these goals, we must implement the struc sem_ds to have access to semaphore data structures, a 
+    unique identifier for a semaphore (“key”), and the union semun argument which is needed for semaphore control. The 
+    built in functions that are utilized for this program are ftok() which is used to generate a unique key for a semaphore 
+    in the self-referential directory(“.”). This function generates a value needed for semget(), which returns the value of 
+    a Semapore identifier (Negative if there is an error). Additionally, semctl() is used in multiple ways, one where the 
+    the cmd argument IPC_STAT to return the identifier of a structure for a given semaphore, and IPC_SETALL to initialize 
+    all Semaphores to a corresponding values in a given array. 
