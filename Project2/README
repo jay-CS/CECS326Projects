@@ -1,0 +1,16 @@
+
+The problem at hand we are focused on in the program revolves around receiving two integers from the users as well as the 
+sleep time, and with these two integers perform a series of operations, addition, multiplication, subtraction, and division. 
+Moreover, the problem arises from the question “ How do we perform a series of operations with processes using user inputs 
+and a random sleep time”? In order to approach this problem, we first have to list the requirements needed, first the fork() 
+function which allows a program to to create a child process at the line of where the fork() code is in the parent. Next is 
+the execv() which takes a vector, and will point to the child program/process that we want to execute. Also utilized is the 
+random() function which generates a random number. Finally, we need to have the wait() function which allows for the child 
+processes of the parent program to execute and finish before the parent processes exits. Altogether, we receive two inputs 
+from the user and a sleep time, after thorough error checking, the two inputs can beput into an array containing the directory 
+of where the child process that will execute is, as well as the inputs from the user, and a character to determine which 
+operation to perform followed by a NULL to mark the end of the vector. With all this mind, this array can be put into a for 
+loop whose range is amount of operations to perform. Furthermore, every iteration in the for loop will generate a random 
+number via random() and modulus it with the user sleep input to receive a random sleep time and time pass the array of 
+arguments one of which is “i” (operation that will be performed in child program) into the execv function. Finally, the parent 
+program implements a for loop with wait(NULL) to make sure the children execute and finish before the parent exits. 
