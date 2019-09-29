@@ -1,0 +1,14 @@
+Problem Analysis:
+
+The main focus of the project is towards different processes entering a critical section and managing these section via 
+semaphores. Moreover, in order to achieve this goals we need to implement the previous semaphore structures from 
+Project 4, as well as new structures (sem_buf) which will be used to implement semwait and semsignal as a means for the 
+processes to enter and exit the entry section. With semwait and semsignal, each process will be able to decrement the 
+semaphore and lock the Critical Section, and outgoing process will increment it so that the next process can access it, 
+essentially removing the possibility of a deadlock. Some unix methods that are new and used are semop(id, increment or 
+decrement, N) which will take the semaphore id (semaphore we want to modify) and apply an increment or decrement by some 
+number 'N' using semwait or semsignal. Other calls are semget() which just checks to see if the semaphore we want to 
+create already exist, ftok() which generates a key, fork() to create children (multiple processes), fputc()to write a 
+character into a stream, wait() which just halts the parent process until the children have finished execution, and 
+usleep() which halts execution for 'N' amount of microseconds. 
+
