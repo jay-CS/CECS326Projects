@@ -1,0 +1,14 @@
+
+The problem at hand we are focused on in the program revolves around creating children that all are trying to make lock files, 
+which change the course of action that certain processes will take. If the lock file is acquired then the process that acquired 
+the file will be allowed to read the file then it will be released. In the meantime the other process that are trying to 
+acquire the file will either wait long enough to acquire the file once its released by another file or they will fail and kill 
+the child along with sending the child number back to the waiting parent. To fully resolve the tasks/problems at hand we must 
+use built in functions such as creat(), execlp(), wait(), fork(), sleep(), and  unlink(). From these built in functions we 
+will utilize fork() to create 3 children from the parent class using the fork() function and will execl() them to the child 
+class. Furthemore, each process in the child class will attempt to create and access the “Lock1” file. Each child process 
+will attempt to create the lock file using the creat() function and if it is unsuccessful then the child will sleep() and 
+try to generate the file again. Otherwise the child will continue to either release the file using unlink(), or until the 
+number of the attempts is exceeded. During the stages between creat() and unlink(), the child will execlp() the contents 
+and display them of a “Text.dat” file.While every process is running, the parent is waiting for every child to die with the 
+wait(&status) function. 
